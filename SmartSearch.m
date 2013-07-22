@@ -29,7 +29,8 @@
     //==================================================================================================//
     //==================================================================================================//
     
-    NSString* serverURL = @"http://esra.fr0st.me/SmartServer.php";
+    NSString* serverURL = @"http://esra.fr0st.me/Public.php"; //Esra Public API
+    NSString* esraAPIKey = @""; //Esra API Key
     
     //OPERATION QUEUE
     NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];
@@ -37,7 +38,7 @@
     //Setup the request to the server
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:serverURL] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:3];
     [request setHTTPMethod:@"POST"];
-    NSData *requestBody = [[NSString stringWithFormat:@"request=%@",searchString] dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *requestBody = [[NSString stringWithFormat:@"request=%@&APIKey=%@",searchString, esraAPIKey] dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPBody:requestBody];
     
     //==================================================================================================//
